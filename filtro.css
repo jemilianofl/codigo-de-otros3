@@ -1,24 +1,110 @@
-input {
-  width: 500px;
+/* Estilos generales para el body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: linear-gradient(to bottom,#007BFF, #FFFFFF);
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor para el input y el botón */
+.row {
+  display: flex;
+  flex-wrap: wrap;       /* Permite que los elementos se acomoden en varias líneas en pantallas pequeñas */
+  gap: 10px;             /* Espacio uniforme entre el input y el botón */
+  margin-bottom: 20px;   /* Separación inferior para dar respiro al contenido siguiente */
+}
+
+/* Estilos para el input de búsqueda */
+.row .input {
+  flex: 1 1 300px;       /* Permite que el input se expanda, con una base mínima de 300px */
   height: 40px;
   font-size: 18px;
+  padding: 0 10px;       /* Espacio interno para una mejor legibilidad */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s; /* Transición suave para el enfoque */
 }
 
+/* Efecto al enfocar el input */
+.row .input:focus {
+  border-color: #007BFF; /* Cambia el color del borde para resaltar el input */
+}
+
+/* Estilos para el botón */
+.row button {
+  height: 40px;
+  font-size: 18px;
+  padding: 0 20px;         /* Espacio interno para dar una mayor área de clic */
+  border: none;
+  border-radius: 8px;
+  background-color: #007BFF; /* Color de fondo moderno */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover y animación */
+}
+
+/* Efecto hover para el botón */
+.row button:hover {
+  background-color: #0056b3; /* Oscurece el color al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevación leve para mayor interactividad */
+}
+
+/* Responsividad: en dispositivos con ancho menor a 600px, se apilan verticalmente */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+  .row .input,
+  .row button {
+    width: 100%;   /* Cada elemento ocupa el 100% del ancho disponible */
+  }
+}
+
+/* Estilos para la lista de productos y sus tarjetas (estilos previos) */
+
+/* Contenedor de productos */
 #lista-de-productos {
-  display: flex
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
+/* Tarjeta de producto */
 .producto {
   width: 200px;
-  height: 200px;
   margin: 10px;
-  border: 2px solid black;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Efecto hover para la tarjeta de producto */
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
 .producto img {
-  width: 70%;
-  height: auto
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+}
+
+/* Título del producto */
+.producto .titulo {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  color: #333;
 }
